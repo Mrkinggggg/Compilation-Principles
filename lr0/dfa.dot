@@ -1,0 +1,88 @@
+digraph DFA {
+    rankdir=LR;
+    node [shape=circle];
+    0 [label="0
+S -> •E
+E -> •E+T
+E -> •T
+T -> •T*F
+T -> •F
+F -> •(E)
+F -> •id
+"];
+    1 [label="1
+S -> E•
+E -> E•+T
+"];
+    2 [label="2
+E -> T•
+T -> T•*F
+"];
+    3 [label="3
+T -> F•
+"];
+    4 [label="4
+F -> (•E)
+E -> •E+T
+E -> •T
+T -> •T*F
+T -> •F
+F -> •(E)
+F -> •id
+"];
+    5 [label="5
+F -> i•d
+"];
+    6 [label="6
+E -> E+•T
+T -> •T*F
+T -> •F
+F -> •(E)
+F -> •id
+"];
+    7 [label="7
+T -> T*•F
+F -> •(E)
+F -> •id
+"];
+    8 [label="8
+F -> (E•)
+E -> E•+T
+"];
+    9 [label="9
+F -> id•
+"];
+    10 [label="10
+E -> E+T•
+T -> T•*F
+"];
+    11 [label="11
+T -> T*F•
+"];
+    12 [label="12
+F -> (E)•
+"];
+    0 -> 1 [label="E"];
+    0 -> 2 [label="T"];
+    0 -> 3 [label="F"];
+    0 -> 4 [label="("];
+    0 -> 5 [label="i"];
+    1 -> 6 [label="+"];
+    2 -> 7 [label="*"];
+    4 -> 8 [label="E"];
+    4 -> 2 [label="T"];
+    4 -> 3 [label="F"];
+    4 -> 4 [label="("];
+    4 -> 5 [label="i"];
+    5 -> 9 [label="d"];
+    6 -> 10 [label="T"];
+    6 -> 3 [label="F"];
+    6 -> 4 [label="("];
+    6 -> 5 [label="i"];
+    7 -> 11 [label="F"];
+    7 -> 4 [label="("];
+    7 -> 5 [label="i"];
+    8 -> 12 [label=")"];
+    8 -> 6 [label="+"];
+    10 -> 7 [label="*"];
+}
